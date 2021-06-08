@@ -7,7 +7,9 @@
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
     "db": "docker start database",
-    "test": "NODE_ENV=test jest"
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "jest",
+    "posttest": "NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "dependencies": {
     "@sentry/node": "5.10.0",
@@ -21,7 +23,10 @@
     "youch": "^2.2.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
     "@types/jest": "^26.0.23",
+    "babel-jest": "^27.0.2",
     "eslint": "^7.27.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -31,6 +36,9 @@
     "nodemon": "^2.0.7",
     "prettier": "^2.3.0",
     "sequelize-cli": "^6.2.0",
-    "sucrase": "^3.18.1"
+    "sqlite3": "^5.0.2",
+    "sucrase": "^3.18.1",
+    "supertest": "^6.1.3",
+    "ts-jest": "^27.0.3"
   }
 }

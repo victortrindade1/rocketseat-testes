@@ -1,11 +1,9 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-// import FoobarController from "./app/controllers/FoobarController";
+import UserController from './app/controllers/UserController';
 
 const routes = new Router();
 
-routes.get("/", (req, res) => {
-  return res.json({ message: "O pai tá ON..." });
-});
+routes.post('/users', UserController.store);
 
 export default routes;

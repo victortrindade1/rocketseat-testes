@@ -1,8 +1,9 @@
 # Configurando o Jest
 
 > Essa config não é necessária pro React, pois já vem o Jest nele.
-> Instale o jest e também a lib `@types/jest` (ajuda na intellisense do vscode)
-> `yarn add jest @types/jest -D`
+
+Instale o jest e também a lib `@types/jest` (ajuda na intellisense do vscode)
+`yarn add jest @types/jest -D`
 
 Inicie o jest:
 `yarn jest --init`
@@ -13,16 +14,28 @@ v8 sem motivo.
 
 Nascerá o `jest.config.js`.
 
+## babel.config.js
+
+Na aula, o professor disse q o Jest não suporta ES6+, daí instala o
+`@sucrase/jest-plugin`, mas o jest atualizou, e agora mudou um pouco a config. Em
+vez do sucrase-jest, vc agora vai instalar outras libs:
+
+`yarn add --dev babel-jest @babel/core @babel/preset-env`
+
+```javascript
+module.exports = {
+  presets: [['@babel/preset-env', { targets: { node: 'current' } }]],
+};
+```
+
 ## jest.config.js
 
 - Eu vou configurar pra testar apenas o que está dentro de app, que são os
   controllers, middlewares e models. Não vou cobrir o teste com as rotas e
-  database.
+  database, pois não é função do jest ficar testando eles.
 
-> Na aula, o professor disse q o Jest não suporta ES6+, daí instala o `@sucrase/jest-plugin`. Eu acredito q não precise, pq qnd fui instalar o jest, perguntou se eu queria o babel ou v8. Msm assim, vou descrever aqui a instalação. Se não precisar, então não edite o `transform` do `jest.config.js`. Inclusive deu erro no transform igual do professor. Deixei sem sucrase jest.
-
-Se precisar:
-`yarn add @sucrase/jest-plugin -D`
+- Se usar typescript, tem q colocar o `preset: 'ts-jest',`, e instalar esta lib.
+  Na dúvida, veja a documentação.
 
 ```diff
 /*
@@ -205,6 +218,10 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   // transform: undefined,
++  transform: {
++    // '^.+\\.(ts|tsx)?$': 'ts-jest',
++    '^.+\\.(js|jsx)$': 'babel-jest',
++  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

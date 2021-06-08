@@ -109,7 +109,8 @@ export default new App().server;
 ## src/bootstrap.js
 
 ```javascript
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv'; (Deu erro usando import)
+const dotenv = require('dotenv');
 
 dotenv.config({
   path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',

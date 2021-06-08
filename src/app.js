@@ -8,7 +8,7 @@ import sentryConfig from './config/sentry';
 
 import routes from './routes';
 
-// import "./database";
+import './database';
 
 class App {
   constructor() {

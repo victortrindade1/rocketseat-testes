@@ -3,8 +3,8 @@
 Criar testes é fundamental para projetos grandes. A utilidade dos testes é poder
 editar o código garantindo q as novas funcionalidades não afetam as
 funcionalidades anteriores. Sabe qnd vc edita e um monte de coisa q antes dava
-certo agora não dá erro sem vc nem ter mexido ali? Então, pra isso são os
-testes. Vc edita, ele testa tudo.
+certo agora dá erro sem vc nem ter mexido ali? Então, pra isso são os
+testes. Vc edita, ele testa tudo q já foi feito.
 
 ## Tipos de testes
 
@@ -32,7 +32,7 @@ Assim fica o fluxo de desenvolvimento:
 
 ## Code Coverage
 
-É uma feature? q auxilia a testar. Com ela, vc sabe o q testar, se testou
+É uma feature q auxilia a testar. Com ela, vc sabe o q testar, se testou
 suficiente ou se faltou algo.
 
 O que o Code Coverage faz basicamente é coletar as linhas de código q não

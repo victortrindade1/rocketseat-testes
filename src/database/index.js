@@ -1,10 +1,10 @@
-import Sequelize from "sequelize";
+import Sequelize from 'sequelize';
 
-import Foobar from "../app/models/Foobar";
+import User from '../app/models/User';
 
-import databaseConfig from "../config/database";
+import databaseConfig from '../config/database';
 
-const models = [Foobar];
+const models = [User];
 
 class Database {
   constructor() {
