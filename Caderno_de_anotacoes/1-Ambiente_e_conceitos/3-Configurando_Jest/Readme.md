@@ -1,5 +1,16 @@
 # Configurando o Jest
 
+<!-- TOC -->
+
+- [Configurando o Jest](#configurando-o-jest)
+  - [babel.config.js](#babelconfigjs)
+  - [jest.config.js](#jestconfigjs)
+  - [nodemon.json](#nodemonjson)
+  - [eslintrc.js](#eslintrcjs)
+  - [**tests**/example.test.js](#testsexampletestjs)
+
+<!-- /TOC -->
+
 > Essa config não é necessária pro React, pois já vem o Jest nele.
 
 Instale o jest e também a lib `@types/jest` (ajuda na intellisense do vscode)
@@ -255,6 +266,37 @@ testes não são o código do programa.
   },
 + "ignore": ["__tests__"]
 }
+```
+
+## eslintrc.js
+
+Instale uma lib:
+
+`yarn add --dev eslint eslint-plugin-jest`
+
+```diff
+module.exports = {
+  env: {
+    es2021: true,
+    node: true,
++    'jest/globals': true,
+  },
+-  extends: ['airbnb-base', 'prettier'],
++  extends: ['airbnb-base', 'prettier', 'plugin:jest/recommended'],
+-  plugins: ['prettier'],
++  plugins: ['prettier', 'jest'],
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  rules: {
+    'prettier/prettier': 'error',
+    'class-methods-use-this': 'off',
+    'no-params-reassign': 'off',
+    camelcase: 'off',
+    'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
+  },
+};
 ```
 
 ## **tests**/example.test.js
